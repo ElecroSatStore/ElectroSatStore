@@ -6,7 +6,7 @@ export default function Nav() {
   return (
     <header style={{backdropFilter : 'blur(10px)'}} className="z-10 w-full py-3 px-5 sm:px-10 flex justify-between items-center bg-[rgba(255,255,255,0.7)] sticky top-0">
         <div className="flex lg:gap-20 gap-10 items-center w-8/12">
-            <h1 className="mb-0 hover:cursor-pointer font-medium uppercase flex items-center gap-2 text-xl sm:text-2xl md:text-3xl"><TV size={30} color={'#0aad0a'}/> ipdemp</h1>
+            <Link href={'/'} className="mb-0 hover:cursor-pointer font-medium uppercase flex items-center gap-2 text-xl sm:text-2xl md:text-3xl"><TV size={30} color={'#0aad0a'}/> ipdemp</Link>
             <div className="rounded-xl border border-gray-300 px-4 hidden md:flex items-center gap-3 w-full lg:w-6/12 hover:cursor-pointer">
                 <Search width={15} height={15} color={'gray'}/>
                 <div className="py-2">
