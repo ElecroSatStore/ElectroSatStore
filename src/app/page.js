@@ -1,5 +1,6 @@
 import First from "@/components/First";
 import Nav from "@/components/Nav";
+import Second from "@/components/Second";
 import Image from "next/image";
 
 export default function Home() {
@@ -7,6 +8,8 @@ export default function Home() {
     <main>
        <Nav/>
        <First/>
+       <Second/>
+       
     </main>
   );
 }
