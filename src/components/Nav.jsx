@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Cart, List, Person, Search, TV } from "../../svg";
 
 
@@ -14,7 +15,7 @@ export default function Nav() {
             </div>
         </div>
         <div className="flex items-center gap-2 md:gap-5">
-            <button className="hover:cursor-pointer"><Cart size={25} color={'black'}/></button>
+            <Link href={'/cart'} className="hover:cursor-pointer"><Cart size={25} color={'black'}/></Link>
             <button className="hover:cursor-pointer"><Person size={25} color={'black'}/></button>
             <button className="hover:cursor-pointer block md:hidden"><Search width={25} height={25} color={'black'}/></button>
         </div>

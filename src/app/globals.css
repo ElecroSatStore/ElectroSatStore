@@ -18,6 +18,17 @@
     --foreground: #ededed;
   }
 }
+body::-webkit-scrollbar,*::-webkit-scrollbar{
+  width: 5px;
+}
+body::-webkit-scrollbar-track,*::-webkit-scrollbar-track{
+  background: #f1f1f1; 
+  border-radius: 10px;
+}
+body::-webkit-scrollbar-thumb,*::-webkit-scrollbar-thumb{
+  background: #b9b9b9; 
+  border-radius: 10px;
+}
 .first {
   display: grid;
   grid-template-columns: repeat(5,1fr);
@@ -34,8 +45,9 @@
 }
 .second .small{
   display: grid;
+  grid-row : span 2;
   grid-template-columns: repeat(3,1fr);
-  grid-template-rows: repeat(2,290px);
+  grid-template-rows: repeat(2,300px) !important;
   gap: 20px;
 }
 /*responsive*/

@@ -2,6 +2,7 @@ import { Lexend_Deca } from "next/font/google";
 import "./globals.css";
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
+import One from "@/components/providers/One";
 
 
 
@@ -22,7 +23,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${GeistSans.className}`}
       > 
+       <One>
         {children}
+        </One>
       </body>
     </html>
   );
