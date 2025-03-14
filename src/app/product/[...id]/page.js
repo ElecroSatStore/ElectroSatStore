@@ -20,13 +20,10 @@ export default function Index({params}) {
       })
 
       const data = await res.json()
-      console.log("Fetched product:", data)
-
       if (data.status !== 200) {
         console.error("Error:", data.message)
       } else {
         setProduct(data.product)
-        console.log("Updated product state:", data.product)
       }
     } catch (error) {
       console.error("Fetch error:", error)
