@@ -1,5 +1,6 @@
 import { Lexend_Deca } from "next/font/google";
 import "./globals.css";
+import '../styles/table.css'
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
 import One from "@/components/providers/One";

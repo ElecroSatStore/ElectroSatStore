@@ -1,0 +1,90 @@
+/*tables*/
+/* Hide scrollbar but allow scrolling */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  .table_container,.pt_container{
+    overflow-x: auto;
+  }
+  .table_container::-webkit-scrollbar,.pt_container::-webkit-scrollbar{
+    height: 5px;
+  }
+  .table_container::-webkit-scrollbar-track,.pt_container::-webkit-scrollbar-track{
+    background-color: white;
+  }
+  .table_container::-webkit-scrollbar-thumb,.pt_container::-webkit-scrollbar-thumb{
+    background-color: #a8a8a8;
+    border-radius: 20px;
+  }
+  .myTable {
+    width: 1290px !important;
+    height: 500px;
+    overflow-y: auto;
+  }
+  .myTable::-webkit-scrollbar{
+    width: 5px;
+  }
+  .myTable::-webkit-scrollbar-track{
+    background-color: white;
+    width: 5px;
+  }
+  .myTable::-webkit-scrollbar-thumb{
+    background-color: #a8a8a8;
+    border-radius: 20px;
+  }
+  
+  .myTable .thead{
+    position: sticky;
+    top: 0px;
+    background-color: #f1f1f1b5;
+    backdrop-filter: blur(20px);
+    z-index: 3;
+  }
+  .myTable .tfooter{
+    position: sticky;
+    bottom: 0px;
+    z-index: 3;
+  }
+  .myTable div{
+    border: none !important;
+  }
+  .myTable .thead .th:nth-child(1), .myTable .tbody .td:nth-child(1){
+    width: 5%;
+  }
+  .myTable .thead .th:nth-child(2),.myTable .tbody .td:nth-child(2){
+    width: 18%;
+  }
+  .myTable .thead .th:nth-child(3),.myTable .tbody .td:nth-child(3){
+    width: 12%;
+  }
+  .myTable .thead .th:nth-child(4),.myTable .tbody .td:nth-child(4){
+    width: 8%;
+  }
+  .myTable .thead .th:nth-child(5),.myTable .tbody .td:nth-child(5){
+    width: 12%;
+  }
+  .myTable .thead .th:nth-child(6),.myTable .tbody .td:nth-child(6){
+    width: 15%;
+  }
+  .myTable .thead .th:nth-child(7),.myTable .tbody .td:nth-child(7){
+    width: 10%;
+  }
+  .myTable .thead .th:nth-child(8),.myTable .tbody .td:nth-child(8){
+    width: 10%;
+  }
+  .myTable .thead .th:nth-child(9),.myTable .tbody .td:nth-child(9){
+    width: 10%;
+  }
+  .myTable .thead .th:nth-child(0),.myTable .tbody .td:nth-child(9){
+    width: 10%;
+  }
+  
+  .myTable .tr .td:nth-child(4) > div > div {
+    z-index: 1 !important;
+  }

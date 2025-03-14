@@ -1,6 +1,34 @@
+'use client'
+import { useState, useEffect } from "react";
 import Card1 from "./Card1";
 import RotatingText from "./ui/RotatingText";
 export default function First() {
+  const [loading,setLoading] = useState(true)
+  const [products,setProducts] = useState([])
+  const GET_PRODUCT = async() => {
+    try {
+
+      const res = await fetch('/api/product/',{
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      const data = await res.json()
+      if(data.status !== 200){
+        console.log(data.message)
+      }else{
+        setProducts(data.products)
+      }
+    } catch (error) {
+      console.log(error)
+    }finally{
+      setLoading(false)
+    }
+  }
+  useEffect(()=>{
+    GET_PRODUCT()
+  },[])
   return (
     <section className="w-full mt-10">
         <h1 className="px-5 sm:px-10 text-xl sm:text-3xl font-bold text-center w-full mb-4 flex items-center justify-center gap-2">Magasin
@@ -18,16 +46,13 @@ export default function First() {
             />
             </h1>
         <div className="first w-full px-5 sm:px-10">
-            <Card1/>
-            <Card1/>
-            <Card1/>
-            <Card1/>
-            <Card1/>
-            <Card1/>
-            <Card1/>
-            <Card1/>
-            <Card1/>
-            <Card1/>
+            {
+              loading ? <div>Loading ...</div> : (
+                products.map((product, index) => (
+                  <Card1 key={index} product={product} />
+                  ))
+              )
+            }
         </div>
     </section>
   )
