@@ -37,9 +37,6 @@ export default function Index({params}) {
       GET_PRODUCT()
     }
   }, [id])
-  useEffect(()=>{
-    console.log(product)
-  },[product])
   return (
     <main className="flex flex-col md:flex-row px-5 sm:px-10 gap-8 w-full mt-10">
       {loading ? (
