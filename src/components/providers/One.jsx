@@ -3,6 +3,7 @@ import { Error, Success } from "../../../svg";
 import Footer from "../Footer";
 import Nav from "../Nav";
 import { createContext, useState } from "react";
+import { SessionProvider } from "next-auth/react";
 export const alertContext = createContext()
 export default function One({children}) {
   const [alert,setAlert] = useState({
@@ -14,7 +15,7 @@ export default function One({children}) {
     setAlert(value)
   }
   return (
-    <>
+    <SessionProvider>
      <Nav/>
      {
       alert.open && 
@@ -27,6 +28,6 @@ export default function One({children}) {
         {children}
      </alertContext.Provider>
     <Footer/>
-    </>
+    </SessionProvider>
   )
 }

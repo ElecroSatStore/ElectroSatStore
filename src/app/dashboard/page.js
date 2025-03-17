@@ -3,10 +3,22 @@ import Commande from "@/components/dashboard/Commande";
 import Dash from "@/components/dashboard/Dash";
 import Left from "@/components/dashboard/Left";
 import Table from "@/components/dashboard/Table";
-import { useState } from "react";
+import { useState ,useEffect} from "react";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { List ,Dashboard,Logout, TV, Close} from "../../../svg";
 import { Drawer ,Box} from "@mui/material";
 export default function Index() {
+   const { data: session, status } = useSession();
+    const router = useRouter();
+  
+    useEffect(() => {
+      if (status === "unauthenticated") {
+        router.push("/login");
+      }
+    }, [status, router]);
+  
+    
   const [open,setOpen] = useState(false)
   const [list,setList] = useState([
         { id: 1, name: "Tableau de bord",open : true},
@@ -16,6 +28,18 @@ export default function Index() {
     setList(prev => (
       prev.map((item) => item.id == id ? { ...item, open: true } :{...item,open : false})
     ))
+  }
+  if (status === "loading") {
+    return (
+      <main className="flex justify-center items-center h-[80vh] px-5 sm:px-10">
+        <p>Loading...</p>
+      </main>
+    );
+  }
+  if(status === 'unauthenticated'){
+    return <main className="flex justify-center items-center h-[80vh] px-5 sm:px-10">
+        <p>Loading...</p>
+      </main>
   }
   return (
     <main className="h-auto lg:h-[85vh] flex px-5 sm:px-10 relative">
