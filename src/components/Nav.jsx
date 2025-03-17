@@ -62,7 +62,7 @@ export default function Nav() {
         </div>
         <div className="flex items-center gap-2 md:gap-5">
             <Link href={'/cart'} className="hover:cursor-pointer"><Cart size={25} color={'black'}/></Link>
-            <button className="hover:cursor-pointer"><Person size={25} color={'black'}/></button>
+            <Link href={'/login'} className="hover:cursor-pointer"><Person size={25} color={'black'}/></Link>
             <button className="hover:cursor-pointer block md:hidden" onClick={onOpen}><Search width={25} height={25} color={'black'}/></button>
         </div>
         <Modal open = {open} onClose={onClose}>
