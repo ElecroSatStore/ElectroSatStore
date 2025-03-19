@@ -3,7 +3,7 @@ import { neon } from "@neondatabase/serverless";
 export async function GET(req){
     try{
         const sql = neon(`${process.env.DATABASE_URL}`);
-        const products = await sql('select * from product')
+        const products = await sql('select * from product order by id_product')
         if(products.length > 0){
             return NextResponse.json({products , status : 200});
         }else{
