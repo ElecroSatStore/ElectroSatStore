@@ -45,15 +45,21 @@ export default function First() {
             rotationInterval={2000}
             />
             </h1>
-        <div className="first w-full px-5 sm:px-10">
             {
-              loading ? <div>Loading ...</div> : (
-                products.map((product, index) => (
-                  <Card1 key={index} product={product} />
-                  ))
-              )
+              loading ? <div className="h-[50vh] px-5 sm:px-10 flex justify-center items-center w-full">
+              <p className="mb-0 text-lg">Loading ...</p>
+            </div> : (
+              <div className="first w-full px-5 sm:px-10">
+                  {
+                      products.map((product, index) => (
+                        <Card1 key={index} product={product} />
+                        ))
+                    
+                  }
+              </div>
+
+            )
             }
-        </div>
     </section>
   )
 }

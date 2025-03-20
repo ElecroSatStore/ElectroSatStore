@@ -34,23 +34,26 @@ export default function Second() {
   return (
     <section className="px-5 sm:px-10 mt-10 !h-auto">
         <h1 className="px-5 sm:px-10 text-xl sm:text-3xl font-bold text-center w-full mb-4 gap-2">Meilleurs produits</h1>
-        <div className="second">
-            {
-              loading ? <div>Loading...</div> : (<>
-                   <div>
-                    <BigCard product = {products[0]}/>
-                   </div>
-                <div className="small">
-                  {
-                    products.map((item,index) => (
-                      index !==0 && <SBcard key={index} product={item}/>
-                    ))
-                  }
-                </div>
-            </>
-              )
-            }
-        </div>
+        {
+          loading ? <div className="h-[50vh] px-5 sm:px-10 flex justify-center items-center w-full">
+          <p className="mb-0 text-lg">Loading ...</p>
+        </div> : (
+          <>
+            <div className="second">
+                      <div>
+                        <BigCard product = {products[0]}/>
+                      </div>
+                    <div className="small">
+                      {
+                        products.map((item,index) => (
+                          index !==0 && <SBcard key={index} product={item}/>
+                        ))
+                      }
+                    </div>
+            </div>
+          </>
+        )
+        }
     </section>
   )
 }

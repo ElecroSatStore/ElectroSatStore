@@ -40,7 +40,9 @@ export default function Index({params}) {
   return (
     <main className="flex flex-col md:flex-row px-5 sm:px-10 gap-8 w-full mt-10">
       {loading ? (
-        <div>Loading...</div>
+        <div className="h-[80vh] px-5 sm:px-10 flex justify-center items-center w-full">
+        <p className="mb-0 text-lg">Loading ...</p>
+      </div>
       ) : product ? (
         <>
           <First img={product.img} />

@@ -178,14 +178,7 @@ export default function Seconde({product}) {
                 <div className="flex gap-1 text-sm"><h6 className="underline">Payment</h6> : <p className="font-medium text-blue-500">{product.type === 'phisique' ? 'A livraison' : 'Par Whatsapp'}</p></div>
             </div>
         </div>
-        <div className="py-5 border-t border-gray-300">
-            <h2 className="text-lg mb-2.5 font-semibold text-gray-800">Les options de payments</h2>
-            <p className="text-[#484848] font-medium text-sm">
-                Pour les produits physiques, le paiement se fait <span className="text-[#11843C]">à la livraison</span>. 
-                Pour les autres produits non phisiques, comme l’IPTV, veuillez nous contacter via WhatsApp au  
-                <a href="tel:0557007322" className="pl-1 text-[#11843C] underline">0557007322</a>.
-                </p>
-        </div>
+        
         
         <Modal open = {open} onClose={onClose}>
             <Box className = 'absolute bg-white rounded-xl px-6 py-6 -translate-x-1/2 -translate-y-1/2 w-11/12 sm:w-2/3 md:w-1/2 lg:w-7/12 xl:w-6/12 border-none outline-none top-1/2 left-1/2 h-[400px] overflow-y-auto'>

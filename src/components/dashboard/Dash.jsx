@@ -15,6 +15,7 @@ import {
 import { alertContext } from "../providers/One";
 import { Box, Modal } from "@mui/material";
 export default function Dash() {
+  const [red,setRed] = useState(false)
   const { handleAlert } = useContext(alertContext);
   const [stat, setStat] = useState([
     {
@@ -36,6 +37,7 @@ export default function Dash() {
       type: <Order width={25} height={25} color={"gray"} />,
     },
   ]);
+  const [search,setSearch] = useState('')
   const [values, setValues] = useState({
     name: "",
     img: null,
@@ -46,9 +48,11 @@ export default function Dash() {
     desc_b: "",
   });
   const [products, setProducts] = useState([]);
+  const [filtredProducts,setFiltredProducts] = useState([])
   const [loading, setLoading] = useState(true); // Added loading state
   const [open, setOpen] = useState(false);
   const [fichier,setFichier] = useState(null)
+  const [loadingAdd,setLoadingAdd] = useState(false)
   const GET_STATE = async () => {
     try {
       setLoading(true);
@@ -136,9 +140,6 @@ export default function Dash() {
     }
   };
   const DELETE = async (id) => {
-    setProducts((prevValue) =>
-      prevValue.filter((item) => item.id_product !== id)
-    );
     try {
       const res = await fetch("/api/deleteProduct/", {
         method: "POST",
@@ -154,6 +155,9 @@ export default function Dash() {
       if (data.status !== 200) {
         throw new Error(data.message);
       }
+      setProducts((prevValue) =>
+        prevValue.filter((item) => item.id_product !== id)
+      );
       handleAlert({
         open: true,
         type: true,
@@ -178,27 +182,44 @@ export default function Dash() {
   };
   const onSubmit = async(e) => {
     e.preventDefault()
-    const img_url = await handleFileUpload(fichier)
-    console.log("The img url is : "+img_url)
-    try {
-      const response = await fetch("/api/addProduct", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({...values,img : img_url}),
-      });
-  
-      const data = await response.json();
-      console.log(data);
-      if (response.ok) {
-        setOpen(false)
-        handleAlert({ open: true, type: true, message: "Produit ajouté !" });
-        setTimeout(() => handleAlert({ open: false, type: false, message: "" }), 4000);
-      } else {
-        handleAlert({ open: true, type: false, message: "Erreur lors l'ajout !" });
-        setTimeout(() => handleAlert({ open: false, type: false, message: "" }), 4000);
+    if(values.name == '' || values.qte == '' || values.price === '' || values.desc_b == '' || values.desc_s == '' || values.type == '' || fichier === null ){
+      setRed(true)
+    }else{
+      setLoadingAdd(true)
+      const img_url = await handleFileUpload(fichier)
+      try {
+        const response = await fetch("/api/addProduct", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({...values,img : img_url}),
+        });
+    
+        const data = await response.json();
+        console.log(data);
+        if (response.ok) {
+          setOpen(false)
+          setValues(prev => ({
+            ...prev,
+            name: '',
+            qte: '',
+            price: '',
+            desc_b: '',
+            desc_s: '',
+            type: '',
+            img : '',
+          }))
+          handleAlert({ open: true, type: true, message: "Produit ajouté avec succés" });
+          GET_PRODUCT()
+          setTimeout(() => handleAlert({ open: false, type: false, message: "" }), 4000);
+        } else {
+          handleAlert({ open: true, type: false, message: "Erreur lors l'ajout !" });
+          setTimeout(() => handleAlert({ open: false, type: false, message: "" }), 4000);
+        }
+      } catch (error) {
+        console.error("Erreur:", error);
+      }finally{
+        setLoadingAdd(false)
       }
-    } catch (error) {
-      console.error("Erreur:", error);
     }
   }
   const handleFileUpload = async (file) => {
@@ -256,6 +277,23 @@ export default function Dash() {
   useEffect(() => {
     console.log(values);
   }, [values]);
+  const onSearch = () => {
+    if (search.trim() !== '') {
+      setFiltredProducts(products.filter(item => 
+        item.name.toLowerCase().includes(search.toLowerCase())
+      ));
+    } else {
+      setFiltredProducts(products);
+    }
+  };
+  
+  useEffect(() => {
+    setFiltredProducts(products);
+  }, [products]);
+  
+  useEffect(() => {
+    onSearch();
+  }, [search]);
   return (
     <section>
       <div className="mb-5">
@@ -282,6 +320,8 @@ export default function Dash() {
           </span>
           <input
             type="text"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
             placeholder="Rechercher..."
             className="py-2.5 px-2 outline-none text-sm"
           />
@@ -387,13 +427,13 @@ export default function Dash() {
               <div className="flex gap-2 flex-col justify-center h-64 items-center">
                 <small className="text-gray-700 font-medium">Loading...</small>
               </div>
-            ) : !Array.isArray(products) || products.length === 0 ? (
+            ) : !Array.isArray(filtredProducts) || filtredProducts.length === 0 ? (
               <div className="flex gap-2 flex-col justify-center h-64 items-center">
                 <NoProduct width={40} height={40} color={"black"} />
                 <small className="text-gray-700 font-medium">Empty list</small>
               </div>
             ) : (
-              products.map((fav, index) => {
+              filtredProducts.map((fav, index) => {
                 return (
                   <div key={fav.id_product} className="tr flex px-6 py-2">
                     <div className="td w-1/12 flex  items-center text-uppercase">
@@ -503,7 +543,7 @@ export default function Dash() {
           </button>
           <div>
             <h1 className="text-2xl font-bold mb-0">Ajouter Produit</h1>
-            <p className="text-sm text-[#484848]">
+            <p className={`text-sm ${red ? 'text-red-500' : 'text-[#484848]'}`}>
               il faut remplir touts les champes pour ajouter un produit
             </p>
           </div>
@@ -634,8 +674,28 @@ export default function Dash() {
                   className="py-2 w-full h-full border mt-2 border-gray-300 px-2 rounded-md"
                   />
               </div>
-            
-            <button className="w-1/2 mt-3 bg-blue-500 text-white font-medium text-sm rounded-md py-2.5 hover:cursor-pointer">Ajouter product</button>
+              <button
+              disabled={
+                values.name === '' ||
+                values.qte === '' ||
+                values.price === '' ||
+                values.desc_b === '' ||
+                values.desc_s === '' ||
+                values.type === '' || 
+                fichier === null || 
+                loadingAdd
+              }
+              className={`w-1/2 mt-3 text-white font-medium text-sm rounded-md py-2.5
+                ${values.name === '' || values.qte === '' || values.price === '' || values.desc_b === '' || values.desc_s === '' || values.type === '' || fichier === null 
+                  ? "bg-gray-400 cursor-not-allowed" 
+                  : "bg-blue-500 hover:bg-blue-600 cursor-pointer"
+                }`}
+            >
+              {
+                loadingAdd ? 'Loading...' : 'Ajouter produit'
+              }
+            </button>
+
           </form>
         </Box>
       </Modal>
