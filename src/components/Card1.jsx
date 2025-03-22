@@ -48,7 +48,13 @@ export default function Card1({product}) {
         <div className="pt-3">
             <h6 className="text-base mb-0 sm:mb-1 truncate font-semibold transition-colors hover:text-primary capitalize">{product.name}</h6>    
             </div>
-            <p className="text-[#484848] text-sm font-normal capitalize">{product.desc_s}</p>
+            <p 
+            className="text-[#484848] text-sm font-normal capitalize sm:max-w-full sm:whitespace-normal sm:overflow-visible whitespace-nowrap overflow-hidden text-ellipsis max-w-[120px]"
+            title={product.desc_s}
+          >
+            {product.desc_s}
+          </p>
+
             <div className="flex justify-between items-center">
                 <span className="text-sm font-semibold text-gray-900">{product.price} DA</span>
                 <button title="Ajouter au panier" onClick={()=>addToCart(product)} className="w-fit hover:cursor-pointer px-2 rounded-md bg-[#111111] text-white font-semibold">+</button>

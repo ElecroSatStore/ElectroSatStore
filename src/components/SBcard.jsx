@@ -45,7 +45,7 @@ export default function SBcard({product}) {
     <img  onClick={()=>router.push('/product/'+product.id_product)} src={product.img} className="w-full h-[69%] rounded-lg object-cover"/>
     <div className="pt-1 h-[30%]">
         <h6 className="text-base mb-0 sm:mb-1 truncate font-semibold transition-colors hover:text-primary capitalize">{product.name}</h6>    
-        <p className="text-[#484848] text-xs sm:text-sm font-normal">{product.desc_s}</p>
+        <p title={product.desc_s} className="text-[#484848] text-sm font-normal capitalize sm:max-w-full sm:whitespace-normal sm:overflow-visible whitespace-nowrap overflow-hidden text-ellipsis max-w-[120px]">{product.desc_s}</p>
         <div className="flex justify-between items-center">
             <span className="text-sm font-semibold text-gray-900">{product.price} DA</span>
             <button onClick={()=>addToCart(product)} title="Ajouter au panier" className="w-fit hover:cursor-pointer px-2.5 py-0 rounded-md bg-[#111111] text-white font-semibold">+</button>
