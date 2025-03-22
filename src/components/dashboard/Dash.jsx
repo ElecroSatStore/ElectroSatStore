@@ -254,20 +254,28 @@ export default function Dash() {
   const handleValues = (e) => {
     const { name, value } = e.target;
 
-    if (name === "qte" || name == 'price') {
-      if (!isNaN(Number(value))) {
-        setValues((prev) => ({
-          ...prev,
-          [name]: value,
-        }));
-      }
+    if (name === "qte" || name === "price") {
+        if (!isNaN(Number(value))) {
+            setValues((prev) => ({
+                ...prev,
+                [name]: value,
+            }));
+        }
+    } else if (name === "desc_s") { 
+        if (value.length <= 39) {  // Limit length to 39
+            setValues((prev) => ({
+                ...prev,
+                [name]: value,
+            }));
+        }
     } else {
-      setValues((prev) => ({
-        ...prev,
-        [name]: value,
-      }));
+        setValues((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
     }
-  };
+};
+
 
 
   useEffect(() => {
