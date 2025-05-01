@@ -54,7 +54,7 @@ export default function Nav() {
         <div className="flex lg:gap-20 gap-10 items-center">
             <Link href={'/'} className="mb-0 hover:cursor-pointer font-medium uppercase flex items-center gap-2 text-xl sm:text-2xl md:text-3xl"><TV size={30} color={'#0aad0a'}/> SatStore</Link>
         </div>
-        <nav className="flex gap-5">
+        <nav className="flex gap-5 hidden sm:flex">
            <Link href={'/'} className="mb-0 font-medium ">Acceuil</Link>
            <Link href={'/payment'} className="mb-0 font-medium ">Payment</Link>
         </nav>
