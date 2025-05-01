@@ -14,7 +14,7 @@ const lexendDeca = Lexend_Deca({
 });
 
 export const metadata = {
-  title: "ElectroSatStore",
+  title: "SatStore",
 };
 
 export default function RootLayout({ children }) {
