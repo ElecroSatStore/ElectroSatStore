@@ -30,7 +30,7 @@ export default function Index() {
             <p className="text-[#484848] font-medium text-sm">
                 Pour les produits physiques, le paiement se fait <span className="text-[#11843C]">à la livraison</span>. 
                 Pour les autres produits non phisiques, comme l’IPTV, veuillez nous contacter via WhatsApp au  
-                <a href="tel:0557007322" className="pl-1 text-[#11843C] underline">0557007322</a>.
+                <a href="tel:0561372587" className="pl-1 text-[#11843C] underline">(+213) 05 61 37 25 87</a>.
                 </p>
         </div>
     </main>
