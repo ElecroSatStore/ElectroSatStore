@@ -10,7 +10,7 @@ export default function Footer() {
             <CopyRight width={12} height={12} color={'white'}/>
             <p className="mb-0 text-sm text-white font-medium">2025, Yahia Slimani</p>
         </div>
-      <br />
+    
 
     </div>
       <div className="mt-10 bg-gray-900 flex justify-between px-10 py-5">
