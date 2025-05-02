@@ -243,7 +243,7 @@ export default function Seconde({product}) {
                       <p className="mb-0 text-base text-[#484848] font-medium">Type de payment</p>
                       <p className="mb-0 text-base text-[#484848] font-medium capitalize">{product.type === 'phisique' ? 'à livraison' : 'WhatsApp'}</p>
                    </div>
-                   <Link href={'https://wa.me/213557007322'} className="text-white mt-3 hover:cursor-pointer font-bold rounded-md bg-[#25D366] py-2.5 w-full flex justify-center items-center gap-2"><WhatsApp color={'white'} size={25}/> WhatsApp</Link>
+                   <Link href={'https://wa.me/213561372587'} className="text-white mt-3 hover:cursor-pointer font-bold rounded-md bg-[#25D366] py-2.5 w-full flex justify-center items-center gap-2"><WhatsApp color={'white'} size={25}/> WhatsApp</Link>
                 </div>
             </Box>
         </Modal>
