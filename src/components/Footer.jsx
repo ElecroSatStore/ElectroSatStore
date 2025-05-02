@@ -13,7 +13,7 @@ export default function Footer() {
     
 
     </div>
-      <div className="mt-10 bg-gray-900 flex justify-between px-10 py-5">
+      <div className="bg-gray-900 flex justify-between px-10 py-5">
               <div className="flex items-center gap-4">
         <a 
             href="https://www.instagram.com/info_elecro_sat/?igsh=djl4cmN4djAyaHRz" 
