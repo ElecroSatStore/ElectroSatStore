@@ -2,8 +2,8 @@ import { CopyRight } from "../../svg";
 
 export default function Footer() {
   return (
-    <>
-    <footer className="mt-10 bg-gray-900 flex justify-between px-10 py-5">
+    <footer>
+    <div className="mt-10 bg-gray-900 flex justify-between px-10 py-5">
         <h1 className="mb-0 font-bold text-white text-2xl">SatStore</h1>
         <div className="flex items-center gap-1">
             <p className="mb-0 text-sm text-white font-medium">Tous droits réservés</p>
@@ -12,7 +12,8 @@ export default function Footer() {
         </div>
       <br />
 
-    </footer>
+    </div>
+      <div className="mt-10 bg-gray-900 flex justify-between px-10 py-5">
               <div className="flex items-center gap-4">
         <a 
             href="https://www.instagram.com/info_elecro_sat/?igsh=djl4cmN4djAyaHRz" 
@@ -31,6 +32,7 @@ export default function Footer() {
             TikTok
         </a>
     </div>
-    </>
+        </div>
+    <footer/>
   )
 }
