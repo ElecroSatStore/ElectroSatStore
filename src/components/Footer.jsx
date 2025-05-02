@@ -9,7 +9,7 @@ export default function Footer() {
             <CopyRight width={12} height={12} color={'white'}/>
             <p className="mb-0 text-sm text-white font-medium">2025, Yahia Slimani</p>
         </div>
-      <br>
+      <br />
           <div className="flex items-center gap-4">
         <a 
             href="https://www.instagram.com/info_elecro_sat/?igsh=djl4cmN4djAyaHRz" 
