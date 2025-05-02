@@ -10,7 +10,7 @@ export default function Footer() {
             <p className="mb-0 text-sm text-white font-medium">2025, Yahia Slimani</p>
         </div>
       <br />
-          <div className="items-center gap-4">
+          <div className="flex items-center gap-4 w-full">
         <a 
             href="https://www.instagram.com/info_elecro_sat/?igsh=djl4cmN4djAyaHRz" 
             target="_blank" 
