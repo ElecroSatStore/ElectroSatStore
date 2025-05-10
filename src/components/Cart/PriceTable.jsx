@@ -181,7 +181,7 @@ export default function PriceTable({sum,product,handleCart}) {
                                 <option>Wilaya</option>
                                 {
                                     wilaya.map(item => (
-                                        <option key={item.id} value={item.name} value={item.prix} >{item.name} {item.prix}</option>
+                                        <option key={item.id} value={item.name} >{item.name} </option>
                                     ))
                                 }
                             </select>
