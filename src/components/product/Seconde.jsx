@@ -43,7 +43,7 @@ export default function Seconde({product}) {
   
   };
   const [loading,setLoading] = useState(false)
-  const [idWilaya,setIdWilaya] = useState(null)
+  const [idWilaya,setIdWilaya] = useState(0)
   const [open,setOpen] = useState(false)
   const [filteredCities,setFilteredCities] = useState([])
   const [values,setValues] = useState({
