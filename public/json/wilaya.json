@@ -1,5 +1,5 @@
 [
-    { "id": 1, "name": "Adrar" },
+    { "id": 1, "name": "Adrar","prix":"200" },
     { "id": 2, "name": "Chlef" },
     { "id": 3, "name": "Laghouat" },
     { "id": 4, "name": "Oum El Bouaghi" },
