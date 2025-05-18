@@ -81,7 +81,7 @@ export default function Seconde({product}) {
             wilaya : values.wilaya,
             city : values.city,
             quantity :quantity,
-            price : product.price * quantity,
+            price : (product.price * quantity)+wilaya[idWilaya],
           })
       })
 
