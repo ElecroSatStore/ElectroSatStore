@@ -28,7 +28,7 @@ export default function Seconde({product}) {
           cart.push({ ...product, quantity: 1 }); 
           sessionStorage.setItem("cart", JSON.stringify(cart));
           handleAlert({
-            open : true,
+            open : true,Adrar
             type : true,
             message : "Produit ajouté dans le panier"
           })
@@ -237,7 +237,7 @@ export default function Seconde({product}) {
                    <h1 className="mb-0 text-xl font-bold mt-3">Resumé de commande</h1>
                    <div className="flex justify-between items-center border-b border-gray-300 py-2">
                       <p className="mb-0 text-base text-[#484848] font-medium">{product.name}</p>
-                      <p className="mb-0 text-base text-[#484848] font-medium flex gap-1 items-center">Prix : {(product.price * quantity)+ wilaya[0].prix} <span className="text-white bg-blue-500 rounded-md px-1 text-sm">x{quantity}</span></p>
+                      <p className="mb-0 text-base text-[#484848] font-medium flex gap-1 items-center">Prix : {(product.price * quantity)+ wilaya[idWilaya-1].prix} <span className="text-white bg-blue-500 rounded-md px-1 text-sm">x{quantity}</span></p>
                    </div>
                    <div className="flex justify-between items-center border-b border-gray-300 py-2">
                       <p className="mb-0 text-base text-[#484848] font-medium">Type de payment</p>
