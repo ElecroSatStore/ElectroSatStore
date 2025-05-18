@@ -1,6 +1,6 @@
 [
-    { "id": 1, "name": "Adrar","prix":"200" },
-    { "id": 2, "name": "Chlef" },
+    { "id": 1, "name": "Adrar","prix":200 },
+    { "id": 2, "name": "Chlef" ,"prix": 500},
     { "id": 3, "name": "Laghouat" },
     { "id": 4, "name": "Oum El Bouaghi" },
     { "id": 5, "name": "Batna" },
