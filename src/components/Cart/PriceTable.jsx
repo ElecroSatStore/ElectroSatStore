@@ -222,16 +222,16 @@ export default function PriceTable({sum,product,handleCart}) {
                                 <p className="mb-0 text-base text-[#484848] font-medium flex gap-1 items-center">Prix : {item.price } <span className="text-white bg-blue-500 rounded-md px-1 text-sm">x{item.quantity}</span></p>
                             </div>
                             <div className="flex justify-between items-center border-b border-gray-300 py-2">
-                                <p className="mb-0 text-base text-[#484848] font-medium">Livraison</p>
-                                <p className="mb-0 text-base text-[#484848] font-medium capitalize">{idWilaya == null ? 0 : (wilaya[idWilaya-1].prix)} DA</p>
-                            </div>
-                            <div className="flex justify-between items-center border-b border-gray-300 py-2">
                                 <p className="mb-0 text-base text-[#484848] font-medium">Type de payment</p>
                                 <p className="mb-0 text-base text-[#484848] font-medium capitalize">{product.type === 'phisique' ? 'à livraison' : 'WhatsApp'}</p>
                             </div>
                         </div>
                     ))
                    }
+                    <div className="flex justify-between items-center border-b border-gray-300 py-2">
+                                <p className="mb-0 text-base text-[#484848] font-medium">Livraison</p>
+                                <p className="mb-0 text-base text-[#484848] font-medium capitalize">{idWilaya == null ? 0 : (wilaya[idWilaya-1].prix)} DA</p>
+                    </div>
                    <div className="flex justify-between items-center border-b border-gray-300 py-2">
                                 <p className="mb-0 text-base text-[#484848] font-semibold">Total</p>
                                 <p className="mb-0 text-base text-[#484848] font-medium capitalize">{idWilaya == null ? sum+0 : sum+(wilaya[idWilaya-1].prix)} DA</p>
