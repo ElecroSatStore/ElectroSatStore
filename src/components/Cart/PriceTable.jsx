@@ -142,12 +142,12 @@ export default function PriceTable({sum,product,handleCart}) {
            
             <div className='flex justify-between pb-5 border-b border-gray-300'>
                 <small className='text-[#484848] text-sm font-medium'>Livraison</small>
-                <p className='mb-0 font-medium text-sm'>{product.length === 0 ? 0 : 100} DA</p>
+                <p className='mb-0 font-medium text-sm'>{product.length === 0 ? 0 : "XXX"} DA</p>
             </div>
             
             <div className='flex justify-between py-3'>
                 <small className='text-black text-sm font-bold'>Total</small>
-                <p className='mb-0 font-medium text-sm'>{sum + product.length === 0 ? 0 : 100} DA</p>
+                <p className='mb-0 font-medium text-sm'>{sum + product.length === 0 ? 0 : "XXXX"} DA</p>
             </div>
             {
                 product.length === 0 ? (
@@ -219,7 +219,11 @@ export default function PriceTable({sum,product,handleCart}) {
                         <div key={index}>
                             <div className="flex justify-between items-center border-b border-gray-300 py-2">
                                 <p className="mb-0 text-base text-[#484848] font-medium">{item.name}</p>
-                                <p className="mb-0 text-base text-[#484848] font-medium flex gap-1 items-center">Prix : {item.price * item.quantity} <span className="text-white bg-blue-500 rounded-md px-1 text-sm">x{item.quantity}</span></p>
+                                <p className="mb-0 text-base text-[#484848] font-medium flex gap-1 items-center">Prix : {item.price } <span className="text-white bg-blue-500 rounded-md px-1 text-sm">x{item.quantity}</span></p>
+                            </div>
+                            <div className="flex justify-between items-center border-b border-gray-300 py-2">
+                                <p className="mb-0 text-base text-[#484848] font-medium">Livraison</p>
+                                <p className="mb-0 text-base text-[#484848] font-medium capitalize">{idWilaya == null ? 0 : (wilaya[idWilaya-1].prix)} DA</p>
                             </div>
                             <div className="flex justify-between items-center border-b border-gray-300 py-2">
                                 <p className="mb-0 text-base text-[#484848] font-medium">Type de payment</p>
@@ -230,7 +234,7 @@ export default function PriceTable({sum,product,handleCart}) {
                    }
                    <div className="flex justify-between items-center border-b border-gray-300 py-2">
                                 <p className="mb-0 text-base text-[#484848] font-semibold">Total</p>
-                                <p className="mb-0 text-base text-[#484848] font-medium capitalize">{sum + 100}</p>
+                                <p className="mb-0 text-base text-[#484848] font-medium capitalize">{idWilaya == null ? sum+0 : sum+(wilaya[idWilaya-1].prix)} DA</p>
                     </div>
                    
                    <Link href={'https://wa.me/213557007322'} className="text-white mt-3 hover:cursor-pointer font-bold rounded-md bg-[#25D366] py-2.5 w-full flex justify-center items-center gap-2"><WhatsApp color={'white'} size={25}/> WhatsApp</Link>
