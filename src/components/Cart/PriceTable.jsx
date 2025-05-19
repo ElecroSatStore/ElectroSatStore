@@ -223,7 +223,7 @@ export default function PriceTable({sum,product,handleCart}) {
                             </div>
                             <div className="flex justify-between items-center border-b border-gray-300 py-2">
                                 <p className="mb-0 text-base text-[#484848] font-medium">Type de payment</p>
-                                <p className="mb-0 text-base text-[#484848] font-medium capitalize">{product.type === 'phisique' ? 'à livraison' : 'WhatsApp'}</p>
+                                <p className="mb-0 text-base text-[#484848] font-medium capitalize">{item.type === 'phisique' ? 'à livraison' : 'WhatsApp'}</p>
                             </div>
                         </div>
                     ))
