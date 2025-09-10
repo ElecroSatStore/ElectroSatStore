@@ -20,8 +20,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-    <head>
-<script>
+      <body
+        className={`${GeistSans.className}`}
+      > 
+        <script>
 !function (w, d, t) {
   w.TiktokAnalyticsObject = t;
   var ttq = w[t] = w[t] || [];
@@ -51,11 +53,6 @@ export default function RootLayout({ children }) {
   ttq.page();
 }(window, document, 'ttq');
 </script>
-
-    </head>
-      <body
-        className={`${GeistSans.className}`}
-      > 
        <One>
         {children}
         </One>
