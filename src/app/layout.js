@@ -42,7 +42,7 @@ export default function RootLayout({ children }) {
     var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(a,s);
   };
 }(window, document, 'ttq');
-ttq.load('D2F2GIJC77U9PLHEK440');
+ttq.load('D30U2G3C77UF8A0EHU5G');
 ttq.page();
 `}}
 />
