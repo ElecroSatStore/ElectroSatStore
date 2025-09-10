@@ -41,7 +41,7 @@ export default function RootLayout({ children }) {
     var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(a,s);
   };
 }(window, document, 'ttq');
-ttq.load('TT-REPLACE_WITH_YOUR_PIXEL_ID');
+ttq.load('D2F2GIJC77U9PLHEK440');
 ttq.page();
 `}}
 />
